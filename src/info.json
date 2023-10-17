@@ -1,0 +1,512 @@
+{
+    "identifier": "com.microsoft-text-to-speech",
+    "version": "1.1.2",
+    "category": "tts",
+    "name": "微软TTS服务",
+    "summary": "微软 TTS SDK 服务",
+    "icon": "121",
+    "author": "markvlenvision",
+    "homepage": "https://github.com/markvlenvision/Microsoft-TTS-Service-BobPlugin",
+    "appcast": "https://raw.githubusercontent.com/markvlenvision/Microsoft-TTS-Service-BobPlugin/main/appcast.json",
+    "minBobVersion": "0.5.0",
+    "options": [
+        {
+            "identifier": "desc",
+            "type": "menu",
+            "title": "描述",
+            "defaultValue": "Speech Service",
+            "menuValues": [
+                {
+                    "title": "微软TTS服务",
+                    "value": "Speech Service"
+                }
+            ],
+            "desc": "微软TTS服务"
+        },
+        {
+            "identifier": "region",
+            "type": "menu",
+            "title": "位置/区域",
+            "defaultValue": "eastasia",
+            "menuValues": [
+                {
+                    "title": "eastasia - 东亚",
+                    "value": "eastasia"
+                },
+                {
+                    "title": "southeastasia - 东南亚",
+                    "value": "southeastasia"
+                }
+            ],
+            "desc": "这是你的资源的位置（或区域）,「选东南亚免秘钥，但会经常出现调用错误，接口调用限制」"
+        },
+        {
+            "identifier": "secretKey",
+            "type": "text",
+            "title": "秘钥",
+            "defaultValue": "",
+            "desc": "请勿共享密钥。安全地存储这些密钥"
+        },
+        {
+            "identifier": "cacheDataNum",
+            "type": "menu",
+            "title": "缓存数量",
+            "defaultValue": 10,
+            "menuValues": [
+                {
+                    "title": "10",
+                    "value": 10
+                },
+                {
+                    "title": "50",
+                    "value": 50
+                },
+                {
+                    "title": "100",
+                    "value": 100
+                }
+            ],
+            "desc": "缓存音频的数量，超出会删除历史缓存"
+        },
+        {
+            "identifier": "quality",
+            "type": "menu",
+            "title": "音质",
+            "defaultValue": "audio-48khz-192kbitrate-mono-mp3",
+            "menuValues": [
+                {
+                    "title": "高 - 48Khz192KBit",
+                    "value": "audio-48khz-192kbitrate-mono-mp3"
+                },
+                {
+                    "title": "中 - 24Khz160KBit",
+                    "value": "audio-24khz-160kbitrate-mono-mp3"
+                },
+                {
+                    "title": "低 - 16Khz32KBit",
+                    "value": "audio-16khz-32kbitrate-mono-mp3"
+                }
+            ],
+            "desc": "选择音质"
+        },
+        {
+            "identifier": "rate",
+            "type": "menu",
+            "title": "语速",
+            "defaultValue": "default",
+            "menuValues": [
+                {
+                    "title": "默认",
+                    "value": "default"
+                },
+                {
+                    "title": "超慢",
+                    "value": "x-slow"
+                },
+                {
+                    "title": "慢",
+                    "value": "slow"
+                },
+                {
+                    "title": "中等",
+                    "value": "medium"
+                },
+                {
+                    "title": "快",
+                    "value": "fast"
+                },
+                {
+                    "title": "超快",
+                    "value": "x-fast"
+                }
+            ],
+            "desc": "调整语速"
+        },
+        {
+            "identifier": "volume",
+            "type": "menu",
+            "title": "音量",
+            "defaultValue": "default",
+            "menuValues": [
+                {
+                    "title": "默认",
+                    "value": "default"
+                },
+                {
+                    "title": "静音",
+                    "value": "silent"
+                },
+                {
+                    "title": "超轻",
+                    "value": "x-soft"
+                },
+                {
+                    "title": "轻",
+                    "value": "soft"
+                },
+                {
+                    "title": "中等",
+                    "value": "medium"
+                },
+                {
+                    "title": "大声",
+                    "value": "loud"
+                },
+                {
+                    "title": "超大声",
+                    "value": "x-loud"
+                }
+            ],
+            "desc": "调整音量"
+        },
+        {
+            "identifier": "zh-CN-speaker",
+            "type": "menu",
+            "title": "中文语音",
+            "defaultValue": "zh-CN-XiaoxiaoNeural",
+            "menuValues": [
+                {
+                    "title": "晓晓（女）",
+                    "value": "zh-CN-XiaoxiaoNeural"
+                },
+                {
+                    "title": "晓辰（女）",
+                    "value": "zh-CN-XiaochenNeural"
+                },
+                {
+                    "title": "晓涵（女）",
+                    "value": "zh-CN-XiaohanNeural"
+                },
+                {
+                    "title": "晓梦（女）",
+                    "value": "zh-CN-XiaomengNeural"
+                },
+                {
+                    "title": "晓墨（女）",
+                    "value": "zh-CN-XiaomoNeural"
+                },
+                {
+                    "title": "晓秋（女）",
+                    "value": "zh-CN-XiaoqiuNeural"
+                },
+                {
+                    "title": "晓睿（女）",
+                    "value": "zh-CN-XiaoruiNeural"
+                },
+                {
+                    "title": "晓双（女）",
+                    "value": "zh-CN-XiaoshuangNeural"
+                },
+                {
+                    "title": "晓萱（女）",
+                    "value": "zh-CN-XiaoxuanNeural"
+                },
+                {
+                    "title": "晓颜（女）",
+                    "value": "zh-CN-XiaoyanNeural"
+                },
+                {
+                    "title": "晓伊（女）",
+                    "value": "zh-CN-XiaoyiNeural"
+                },
+                {
+                    "title": "晓悠（女）",
+                    "value": "zh-CN-XiaoyouNeural"
+                },
+                {
+                    "title": "晓甄（女）",
+                    "value": "zh-CN-XiaozhenNeural"
+                },
+                {
+                    "title": "云枫（男）",
+                    "value": "zh-CN-YunfengNeural"
+                },
+                {
+                    "title": "云皓（男）",
+                    "value": "zh-CN-YunhaoNeural"
+                },
+                {
+                    "title": "云健（男）",
+                    "value": "zh-CN-YunjianNeural"
+                },
+                {
+                    "title": "云夏（男）",
+                    "value": "zh-CN-YunxiaNeural"
+                },
+                {
+                    "title": "云希（男）",
+                    "value": "zh-CN-YunxiNeural"
+                },
+                {
+                    "title": "云扬（男）",
+                    "value": "zh-CN-YunyangNeural"
+                },
+                {
+                    "title": "云野（男）",
+                    "value": "zh-CN-YunyeNeural"
+                },
+                {
+                    "title": "云泽（男）",
+                    "value": "zh-CN-YunzeNeural"
+                }
+            ],
+            "desc": "切换zh_CN语音角色"
+        },
+        {
+            "identifier": "en-US-speaker",
+            "type": "menu",
+            "title": "英语语音",
+            "defaultValue": "en-US-JennyNeural",
+            "menuValues": [
+                {
+                    "title": "Jenny（女）",
+                    "value": "en-US-JennyNeural"
+                },
+                {
+                    "title": "JennyMultilingual（女）",
+                    "value": "en-US-JennyMultilingualNeural"
+                },
+                {
+                    "title": "Guy（男）",
+                    "value": "en-US-GuyNeural"
+                },
+                {
+                    "title": "Amber（女）",
+                    "value": "en-US-AmberNeural"
+                },
+                {
+                    "title": "Ana（女）",
+                    "value": "en-US-AnaNeural"
+                },
+                {
+                    "title": "Aria（女）",
+                    "value": "en-US-AriaNeural"
+                },
+                {
+                    "title": "Ashley（女）",
+                    "value": "en-US-AshleyNeural"
+                },
+                {
+                    "title": "Brandon（男）",
+                    "value": "en-US-BrandonNeural"
+                },
+                {
+                    "title": "Christopher（男）",
+                    "value": "en-US-ChristopherNeural"
+                },
+                {
+                    "title": "Cora（女）",
+                    "value": "en-US-CoraNeural"
+                },
+                {
+                    "title": "Davis（男）",
+                    "value": "en-US-DavisNeural"
+                },
+                {
+                    "title": "Elizabeth（女）",
+                    "value": "en-US-ElizabethNeural"
+                },
+                {
+                    "title": "Eric（男）",
+                    "value": "en-US-EricNeural"
+                },
+                {
+                    "title": "Jacob（男）",
+                    "value": "en-US-JacobNeural"
+                },
+                {
+                    "title": "Jane（女）",
+                    "value": "en-US-JaneNeural"
+                },
+                {
+                    "title": "Jason（男）",
+                    "value": "en-US-JasonNeural"
+                },
+                {
+                    "title": "Michelle（女）",
+                    "value": "en-US-MichelleNeural"
+                },
+                {
+                    "title": "Monica（女）",
+                    "value": "en-US-MonicaNeural"
+                },
+                {
+                    "title": "Nancy（女）",
+                    "value": "en-US-NancyNeural"
+                },
+                {
+                    "title": "Sara（女）",
+                    "value": "en-US-SaraNeural"
+                },
+                {
+                    "title": "Steffan（男）",
+                    "value": "en-US-SteffanNeural"
+                },
+                {
+                    "title": "Tony（男）",
+                    "value": "en-US-TonyNeural"
+                },
+                {
+                    "title": "AIGenerate1（男）",
+                    "value": "en-US-AIGenerate1Neural"
+                },
+                {
+                    "title": "AIGenerate2（女）",
+                    "value": "en-US-AIGenerate2Neural"
+                },
+                {
+                    "title": "Roger（男）",
+                    "value": "en-US-RogerNeural"
+                }
+            ],
+            "desc": "切换en-US语音角色"
+        },
+        {
+            "identifier": "es-ES-speaker",
+            "type": "menu",
+            "title": "西班牙语音",
+            "defaultValue": "es-ES-ElviraNeural",
+            "menuValues": [
+                {
+                    "title": "Elvira（女）",
+                    "value": "es-ES-ElviraNeural"
+                },
+                {
+                    "title": "Alvaro（男）",
+                    "value": "es-ES-AlvaroNeural"
+                },
+                {
+                    "title": "Abril（女）",
+                    "value": "es-ES-AbrilNeural"
+                },
+                {
+                    "title": "Arnau（男）",
+                    "value": "es-ES-ArnauNeural"
+                },
+                {
+                    "title": "Dario（男）",
+                    "value": "es-ES-DarioNeural"
+                },
+                {
+                    "title": "Elias（男）",
+                    "value": "es-ES-EliasNeural"
+                },
+                {
+                    "title": "Estrella（女）",
+                    "value": "es-ES-EstrellaNeural"
+                },
+                {
+                    "title": "Irene（女）",
+                    "value": "es-ES-IreneNeural"
+                },
+                {
+                    "title": "Laia（女）",
+                    "value": "es-ES-LaiaNeural"
+                },
+                {
+                    "title": "Lia（女）",
+                    "value": "es-ES-LiaNeural"
+                },
+                {
+                    "title": "Nil（男）",
+                    "value": "es-ES-NilNeural"
+                },
+                {
+                    "title": "Saul（男）",
+                    "value": "es-ES-SaulNeural"
+                },
+                {
+                    "title": "Teo（男）",
+                    "value": "es-ES-TeoNeural"
+                },
+                {
+                    "title": "Triana（女）",
+                    "value": "es-ES-TrianaNeural"
+                },
+                {
+                    "title": "Vera（女）",
+                    "value": "es-ES-VeraNeural"
+                }
+            ],
+            "desc": "切换es-ES语音角色"
+        },
+        {
+            "identifier": "ja-JP-speaker",
+            "type": "menu",
+            "title": "日语语音",
+            "defaultValue": "ja-JP-JennyNeural",
+            "menuValues": [
+                {
+                    "title": "Nanami（女）",
+                    "value": "ja-JP-NanamiNeural"
+                },
+                {
+                    "title": "Keita（男）",
+                    "value": "ja-JP-KeitaNeural"
+                },
+                {
+                    "title": "Aoi（女）",
+                    "value": "ja-JP-AoiNeural"
+                },
+                {
+                    "title": "Daichi（男）",
+                    "value": "ja-JP-DaichiNeural"
+                },
+                {
+                    "title": "Mayu（女）",
+                    "value": "ja-JP-MayuNeural"
+                },
+                {
+                    "title": "Naoki（男）",
+                    "value": "ja-JP-NaokiNeural"
+                },
+                {
+                    "title": "Shiori（女）",
+                    "value": "ja-JP-ShioriNeural"
+                }
+            ],
+            "desc": "切换ja-JP语音角色"
+        },
+        {
+            "identifier": "ko-KR-speaker",
+            "type": "menu",
+            "title": "韩语语音",
+            "defaultValue": "ko-KR-JennyNeural",
+            "menuValues": [
+                {
+                    "title": "SunHi（女）",
+                    "value": "ko-KR-SunHiNeural"
+                },
+                {
+                    "title": "InJoon（男）",
+                    "value": "ko-KR-InJoonNeural"
+                },
+                {
+                    "title": "BongJin（男）",
+                    "value": "ko-KR-BongJinNeural"
+                },
+                {
+                    "title": "GookMin（男）",
+                    "value": "ko-KR-GookMinNeural"
+                },
+                {
+                    "title": "JiMin（女）",
+                    "value": "ko-KR-JiMinNeural"
+                },
+                {
+                    "title": "SeoHyeon（女）",
+                    "value": "ko-KR-SeoHyeonNeural"
+                },
+                {
+                    "title": "SoonBok（女）",
+                    "value": "ko-KR-SoonBokNeural"
+                },
+                {
+                    "title": "YuJin（女）",
+                    "value": "ko-KR-YuJinNeural"
+                }
+            ],
+            "desc": "切换ko-KR语音角色"
+        }
+    ]
+}

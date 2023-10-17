@@ -1,0 +1,19 @@
+{
+  "identifier": "com.microsoft-text-to-speech",
+  "versions": [
+    {
+      "version": "1.1.1",
+      "desc": "更新了info信息 修改了一些描述",
+      "sha256": "6f77a8ca8f1ac8740b7f54fc641c8c0d835993c7d4ca086d81b5824eedd98f88",
+      "url": "https://github.com/markvlenvision/Microsoft-TTS-Service-BobPlugin/releases/download/v1.1.1/Microsoft-TTS-Service_v1.1.1.bobplugin",
+      "minBobVersion": "0.5.0"
+    },
+    {
+      "version": "1.1.0",
+      "desc": "test actions v1.1.0",
+      "sha256": "6b715112ce321fb78f7b0cc5a4618d4925f5cf7a225978e9c75e499b294b5240",
+      "url": "https://github.com/markvlenvision/Microsoft-TTS-Service-BobPlugin/releases/download/v1.1.0/Microsoft-TTS-Service_v1.1.0.bobplugin",
+      "minBobVersion": "0.5.0"
+    }
+  ]
+}
