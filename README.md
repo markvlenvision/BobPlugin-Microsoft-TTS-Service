@@ -20,6 +20,9 @@ Microsoft-TTS-Service-BobPlugin
 
 插件在原作者0.0.9的基础上修改，原插件在调用TTS语音服务时，经常出现失败的情况。原因可能是东南亚API的网络问题（猜的）
 
+#### 2024-02-04 v1.1.4
+
+- 修改Bob v1.9.0 info.json-menuValues-value数据类型为int导致的错误。
 
 #### 2023-09-26 v1.1.2
 
@@ -37,8 +40,9 @@ Microsoft-TTS-Service-BobPlugin
 - 添加了原作者的东南亚接口，东亚、东南亚二选一，选择东亚需要你申请密钥，优点是稳定。
 - 优化了代码
 - 使用官方了logo
-- 缓存文件也可到 /Users/【你的名字】/Library/Application Support/com.ripperhe.Bob/VirtualSandbox/Documents/InstalledPluginSandbox/com.microsoft-text-to-speech/ 手动删除
-
+- 缓存文件可到以下目录手动删除
+  - 社区版：～/Library/Application Support/com.ripperhe.Bob/VirtualSandbox/Documents/InstalledPluginSandbox/com.microsoft-text-to-speech
+  - 商店版：～/Library/Containers/Bob/Data/Documents/InstalledPluginSandbox/com.microsoft-text-to-speech
 
 
 #### 2023-09-25 v1.0.0
