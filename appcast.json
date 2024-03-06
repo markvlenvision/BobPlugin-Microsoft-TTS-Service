@@ -2,6 +2,13 @@
   "identifier": "com.microsoft-text-to-speech",
   "versions": [
     {
+      "version": "1.1.7",
+      "desc": "- 增加俄语 - 移除原来的东南亚api，改为需要密钥 - 增加美国东部API",
+      "sha256": "a0aa19de9aa548cf4717e54a8e57f9a90103fc1a55d544de2c9c605f3871aee9",
+      "url": "https://github.com/markvlenvision/Microsoft-TTS-Service-BobPlugin/releases/download/v1.1.7/Microsoft-TTS-Service_v1.1.7.bobplugin",
+      "minBobVersion": "0.5.0"
+    },
+    {
       "version": "1.1.4",
       "desc": "修改Bob v1.9.0 info.json-menuValues-value数据类型位int导致的错误。",
       "sha256": "d9ac607eadad28de14ada18dc684e2a2b5376d480447daa2173ca6d2ad89621e",
