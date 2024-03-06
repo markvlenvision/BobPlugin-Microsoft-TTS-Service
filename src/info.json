@@ -1,6 +1,6 @@
 {
     "identifier": "com.microsoft-text-to-speech",
-    "version": "1.1.4",
+    "version": "1.1.7",
     "category": "tts",
     "name": "微软TTS服务",
     "summary": "微软 TTS SDK 服务",
@@ -30,15 +30,23 @@
             "defaultValue": "eastasia",
             "menuValues": [
                 {
-                    "title": "eastasia - 东亚",
+                    "title": "东亚",
                     "value": "eastasia"
                 },
                 {
-                    "title": "southeastasia - 东南亚",
+                    "title": "东南亚",
                     "value": "southeastasia"
+                },
+                {
+                    "title": "美国东部",
+                    "value": "eastus"
+                },
+                {
+                    "title": "美国东部2",
+                    "value": "eastus2"
                 }
             ],
-            "desc": "这是你的资源的位置（或区域）,「选东南亚免秘钥，但会经常出现调用错误，接口调用限制」"
+            "desc": "这是你的资源的位置（或区域）"
         },
         {
             "identifier": "secretKey",
@@ -250,7 +258,7 @@
                     "value": "zh-CN-YunzeNeural"
                 }
             ],
-            "desc": "切换zh_CN语音角色"
+            "desc": "切换中文语音角色"
         },
         {
             "identifier": "en-US-speaker",
@@ -359,7 +367,7 @@
                     "value": "en-US-RogerNeural"
                 }
             ],
-            "desc": "切换en-US语音角色"
+            "desc": "切换英语语音角色"
         },
         {
             "identifier": "es-ES-speaker",
@@ -428,7 +436,7 @@
                     "value": "es-ES-VeraNeural"
                 }
             ],
-            "desc": "切换es-ES语音角色"
+            "desc": "切换西班牙语音角色"
         },
         {
             "identifier": "ja-JP-speaker",
@@ -465,7 +473,7 @@
                     "value": "ja-JP-ShioriNeural"
                 }
             ],
-            "desc": "切换ja-JP语音角色"
+            "desc": "切换日语语音角色"
         },
         {
             "identifier": "ko-KR-speaker",
@@ -506,7 +514,28 @@
                     "value": "ko-KR-YuJinNeural"
                 }
             ],
-            "desc": "切换ko-KR语音角色"
+            "desc": "切换韩语语音角色"
+        },
+        {
+            "identifier": "ru-RU-speaker",
+            "type": "menu",
+            "title": "俄语语音",
+            "defaultValue": "ko-KR-JennyNeural",
+            "menuValues": [
+                {
+                    "title": "Svetlana（女）",
+                    "value": "ru-RU-SvetlanaNeural"
+                },
+                {
+                    "title": "Dmitry（男）",
+                    "value": "ru-RU-DmitryNeural"
+                },
+                {
+                    "title": "Dariya（女）",
+                    "value": "ru-RU-DariyaNeural"
+                }
+            ],
+            "desc": "切换俄语语音角色"
         }
     ]
 }

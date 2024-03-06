@@ -4,13 +4,16 @@ const supportedLanguages = [
     ['en', 'en-US'],
     ['es', 'es-ES'],
     ['ja', 'ja-JP'],
-    ['ko', 'ko-KR']
+    ['ko', 'ko-KR'],
+    ['ru', 'ru-RU']
 ];
 
 
 const supportedRegion = [
-    ['eastasia', 'https://eastasia.api.cognitive.microsoft.com/texttospeech/acc/v3.0-beta1/vcg/speak'],
-    ['southeastasia', 'https://southeastasia.api.speech.microsoft.com/accfreetrial/texttospeech/acc/v3.0-beta1/vcg/speak']
+    ['eastasia', 'https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1'],
+    ['southeastasia', 'https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1'],
+    ['eastus', 'https://eastus.tts.speech.microsoft.com/cognitiveservices/v1'],
+    ['eastus2', 'https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1']
 ];
 
 

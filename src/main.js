@@ -46,10 +46,13 @@ function tts(query, completion) {
             } else {
                 //$log.info('音频缓存文件不存在');
 
-                let requestHeader = requestHeaderSet(secretKey, region);
-
+                let requestHeader = requestHeaderSet(secretKey, region, quality);
                 let prosodyXml = prosodySet(rate, volume, text);
-                let requestBody = requestBodySet(quality, lang, speaker, prosodyXml);
+                let requestBody = requestBodySet(lang, speaker, prosodyXml);
+
+                //$log.info('server:' + server);
+                //$log.info('header:' + JSON.stringify(requestHeader));
+                //$log.info('body:' + requestBody.toUTF8());
 
 
                 const resp = await $http.request({
@@ -58,6 +61,9 @@ function tts(query, completion) {
                     header: requestHeader,
                     body: requestBody
                 });
+
+                //$log.info('resp:' + JSON.stringify(resp));
+
 
                 audioData = $data.fromData(resp.data).toBase64();
 
@@ -99,47 +105,38 @@ function tts(query, completion) {
     });
 }
 
-function requestHeaderSet(secretKey, region) {
+function requestHeaderSet(secretKey, region, quality) {
 
     const map = new Map([
-        ['Content-Type', 'application/json'],
-        ['Transfer-Encoding', 'chunked'],
-        ['User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36'],
+        ['Authorization', 'Bearer ' + secretKey],
+        ['Ocp-Apim-Subscription-Key', secretKey],
+        ['Content-Type', 'application/ssml+xml'],
+        ['X-Microsoft-OutputFormat', quality],
+        ['Host', region + '.tts.speech.microsoft.com'],
+        ['User-Agent', 'curl'],
     ]);
-
-    $log.info(region);
-
-    if ("eastasia" === region) {
-        map.set('Host', 'eastasia.api.cognitive.microsoft.com');
-        map.set('Ocp-Apim-Subscription-Key', secretKey);
-
-    } else if ("southeastasia" === region) {
-        map.set('Host', 'southeastasia.api.speech.microsoft.com');
-        map.set('Origin', 'https://azure.microsoft.com');
-    }
 
     return Object.fromEntries(map);
 
 }
 
-function requestBodySet(quality, lang, speaker, prosodyXml) {
-    return {
-        "ttsAudioFormat": quality,
-        "ssml": "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"" + lang + "\">" +
-            "<voice name=\"" + speaker + "\">" + prosodyXml + "</voice>" +
-            "</speak>"
-    }
+function requestBodySet(lang, speaker, prosodyXml) {
+    const xml = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='" + lang + "'>" +
+        "<voice name='" + speaker + "'>" + prosodyXml + "</voice>" +
+        "</speak>"
+
+    return $data.fromUTF8(xml);
 }
 
 function prosodySet(rate, volume, text) {
     let prosody = text;
 
     if ("default" !== rate && "default" === volume) {
-        prosody = "<prosody rate=\"" + rate + "\" >" + text + "</prosody>";
+        prosody = "<prosody rate='" + rate + "' >" + text + "</prosody>";
     } else if ("default" === rate && "default" !== volume) {
-        prosody = "<prosody volume=\"" + volume + "\" >" + text + "</prosody>";
+        prosody = "<prosody volume='" + volume + "' >" + text + "</prosody>";
     } else if ("default" !== rate && "default" !== volume) {
-        prosody = "<prosody rate=\"" + rate + "\" volume=\"" + volume + "\">" + text + "</prosody>";
+        prosody = "<prosody rate='" + rate + "' volume='" + volume + "'>" + text + "</prosody>";
     }
     return prosody;
 }

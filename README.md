@@ -2,7 +2,7 @@
 Microsoft-TTS-Service-BobPlugin
 
 
-该服务需要你满足以下三个条件：(选东南亚，可以不用)
+该服务需要你满足以下三个条件：~~(选东南亚，可以不用)~~
 
 - Azure 订阅 - [免费创建订阅](https://azure.microsoft.com/free/cognitive-services)。
 - 在 Azure 门户中[创建语音资源](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)。
@@ -19,6 +19,14 @@ Microsoft-TTS-Service-BobPlugin
 ### 插件
 
 插件在原作者0.0.9的基础上修改，原插件在调用TTS语音服务时，经常出现失败的情况。原因可能是东南亚API的网络问题（猜的）
+
+
+#### 2024-02-04 v1.1.7
+
+- 增加俄语
+- 移除原来的东南亚api，改为需要密钥
+- 增加美国东部API
+
 
 #### 2024-02-04 v1.1.4
 
@@ -61,8 +69,8 @@ Microsoft-TTS-Service-BobPlugin
 - 增加语音缓存
 
 
-
-
+支持的语言查询：https://learn.microsoft.com/zh-cn/azure/ai-services/speech-service/language-support?tabs=tts
+可用的区域查询：https://learn.microsoft.com/zh-cn/azure/ai-services/speech-service/rest-text-to-speech?tabs=streaming
 
 
 ### ~~服务端~~
